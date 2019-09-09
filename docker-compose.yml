@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  dropbear-scp:
+    container_name: dropbear-scp
+    build:
+      context: ./
+    ports:
+      - "2233:2233"
+    volumes:
+      - ./uploads:/home/dropbear/uploads
