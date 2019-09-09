@@ -2,7 +2,7 @@ FROM alpine:3.10.2
 
 RUN apk update && \
     apk --no-cache upgrade && \
-    apk --no-cache add dropbear openssh-client rsync rrsync
+    apk --no-cache add dropbear rsync rrsync
 
 RUN adduser -D -s /bin/sh dropbear
 USER dropbear
