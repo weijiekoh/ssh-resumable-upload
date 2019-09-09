@@ -14,11 +14,17 @@ git clone https://github.com/weijiekoh/dropbear-scp.git && \
 cd dropbear-scp
 ```
 
+Next, create an `uploads` directory:
+
+```bash
+mkdir uploads
+```
+
 Create an `authorized_keys` file which should be configured as such:
 
 ```
-command="DIR=uploads/USER_0_ID && mkdir -p $DIR && scp -v -r -d -t ~/$DIR",no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty ssh-rsa USER_0_RSA_PUBKEY
-command="DIR=uploads/USER_1_ID && mkdir -p $DIR && scp -v -r -d -t ~/$DIR",no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty ssh-rsa USER_1_RSA_PUBKEY
+command="DIR=uploads/USER_0_ID && mkdir -p ~/$DIR && scp -v -r -d -t ~/$DIR",no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty ssh-rsa USER_0_RSA_PUBKEY
+command="DIR=uploads/USER_1_ID && mkdir -p ~/$DIR && scp -v -r -d -t ~/$DIR",no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty ssh-rsa USER_1_RSA_PUBKEY
 ```
 
 For each `USER_0_ID`, `USER_1_ID`, and so on.

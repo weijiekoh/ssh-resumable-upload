@@ -6,11 +6,10 @@ RUN apk update && \
 
 RUN adduser -D -s /bin/sh dropbear
 RUN mkdir -p /home/dropbear/.ssh/
-COPY authorized_keys /home/dropbear/.ssh/authorized_keys
 RUN dropbearkey -t rsa -f /home/dropbear/.ssh/id_dropbear -s 2048
-RUN chmod a-w /home/dropbear/.ssh/authorized_keys
 RUN chmod a-w /home/dropbear/.ssh/id_dropbear
-RUN chmod a+r /home/dropbear/.ssh/id_dropbear
+COPY authorized_keys /home/dropbear/.ssh/authorized_keys
+RUN chmod a-w /home/dropbear/.ssh/authorized_keys
 
 USER dropbear
 
