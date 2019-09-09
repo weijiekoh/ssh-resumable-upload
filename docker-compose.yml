@@ -1,8 +1,8 @@
 version: '3.7'
 
 services:
-  dropbear-scp:
-    container_name: dropbear-scp
+  ssh-resumable-upload:
+    container_name: ssh-resumable-upload
     build:
       context: ./
     ports:
